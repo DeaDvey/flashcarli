@@ -1,2 +1,2 @@
-# flashcli
+# flashcarli
 cli flashcard program
