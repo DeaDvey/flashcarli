@@ -1,0 +1,45 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <sstream>
+#include "main.h"
+
+void writeStringToLine(const std::string& filename, const std::string& str, int lineNumber) {
+  std::cout << "Writing " << str << " To " << filename << " Line" << lineNumber << std::endl; 
+    std::ifstream inputFile(filename);
+    std::ofstream outputFile("temp.txt");
+
+    if (!inputFile.is_open()) {
+        std::cerr << "Error opening input file." << std::endl;
+        return;
+    }
+
+    if (!outputFile.is_open()) {
+        std::cerr << "Error opening output file." << std::endl;
+        return;
+    }
+
+    std::string line;
+    int currentLineNumber = 1;
+
+    // Read each line from the input file
+    while (std::getline(inputFile, line)) {
+        if (currentLineNumber == lineNumber) {
+            // If this is the line where you want to write the string, write it
+            outputFile << str << std::endl;
+        } else {
+            // If it's not the line you want to modify, write the original line
+            outputFile << line << std::endl;
+        }
+        currentLineNumber++;
+    }
+
+    // Close the files
+    inputFile.close();
+    outputFile.close();
+
+    // Rename the temp file to the original file
+    std::remove(filename.c_str());
+    std::rename("temp.txt", filename.c_str());
+}

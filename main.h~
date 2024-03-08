@@ -1,0 +1,8 @@
+#define MY_FUNCTIONS_H
+
+#include <string>
+#include <vector>
+
+std::string upper(std::string& text);
+void writeStringToLine(const std::string& filename, const std::string& str, int lineNumber);
+

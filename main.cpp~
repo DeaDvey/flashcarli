@@ -21,7 +21,6 @@ int main() {
       {"Explain the pathway of the nervous system", "Stimula --> Receptor --> Sensory Neurones --> Relay Neurones --> CNS --> Relay Neurones --> Moto Neurones --> Effector --> Response", "judge"}
     };
     std::string answer;
-    bool continue = true;
     std::cout << "\n\n---Welcome to flashCarLI!---\n\n";
 
     
